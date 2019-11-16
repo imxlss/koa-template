@@ -4,9 +4,21 @@
 
 ## 启动
 
+获取项目
+
+> git clone https://github.com/imxlss/koa-template.git
+
+安装依赖
+
 > yarn install
 
+启动项目
+
 > yarn start
+
+部署项目
+
+> yarn deploy
 
 ## 文件目录结构
 
