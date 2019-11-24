@@ -32,7 +32,7 @@
   - app.js  // 入口文件
 ```
 
-## 上传到阿里云 oss
+## 上传文件到阿里云 oss
 
 使用阿里云 OSS Node.js SDK
 
