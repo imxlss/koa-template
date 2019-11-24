@@ -1,10 +1,10 @@
 const Koa = require('koa');
 const app = new Koa();
-const bodyParser = require('koa-bodyparser');
+const koaBody = require('koa-body');
 const session = require('koa-session');
-const db = require('./db');
-const router = require('./routers/router');
-const environment = require('../config/environment')[process.env.NODE_ENV];
+const db = require('./src/db');
+const router = require('./src/routers/router');
+const environment = require('./config/environment')[process.env.NODE_ENV];
 
 /* const axios = require('axios');
 axios.get('xxx_url').then(res => {
@@ -22,8 +22,18 @@ const CONFIG = {
 /* 中间件 */
 app.use(session(CONFIG, app));
 
-// 使用用koa-bodyparser中间件 可以直接在ctx.request.body 中获取到JSON格式的POST数据。
-app.use(bodyParser());
+app.use(
+  koaBody({
+    multipart: true,
+    formidable: {
+      keepExtensions: true,
+      onFileBegin(name, file) {
+        file.path = __dirname + '/public/images/' + file.name;
+      },
+      uploadDir: __dirname + '/public/images'
+    }
+  })
+);
 
 app.use(router.routes()).use(router.allowedMethods());
 

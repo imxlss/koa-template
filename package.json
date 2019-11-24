@@ -2,8 +2,8 @@
   "name": "koa-template",
   "version": "1.0.0",
   "scripts": {
-    "start": "NODE_ENV=development node src/app.js",
-    "deploy": "NODE_ENV=production pm2 src/app.js"
+    "start": "NODE_ENV=development node app.js",
+    "deploy": "NODE_ENV=production pm2 app.js"
   },
   "main": "index.js",
   "repository": "https://github.com/imxlss/koa-template.git",

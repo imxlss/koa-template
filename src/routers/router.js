@@ -1,6 +1,7 @@
 const Router = require('koa-router');
 const router = new Router();
 const UserController = require('../controllers/user');
+const UploadController = require('../controllers/upload');
 
 // cors 解决跨域
 // ctx.set('Access-Control-Allow-Origin', 'http://www.xxxx.com');
@@ -12,7 +13,9 @@ router.all('/api/*', async (ctx, next) => {
 
 router
   .post('/api/register', UserController.register)
-  .get('/api/signout', UserController.signout);
+  .get('/api/signout', UserController.signout)
+
+  .post('/api/upload', UploadController.alioss);
 // .<http method>(<url>, <controller.method>)
 
 module.exports = router;
