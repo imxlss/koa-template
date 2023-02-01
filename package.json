@@ -17,6 +17,6 @@
     "koa-router": "^7.4.0",
     "koa-session": "^5.12.3",
     "md5": "^2.2.1",
-    "mongoose": "^5.7.11"
+    "mongoose": "^5.13.15"
   }
 }
